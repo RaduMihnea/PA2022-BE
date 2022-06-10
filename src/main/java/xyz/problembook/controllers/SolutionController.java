@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import xyz.problembook.dtos.Solution.SolutionAddDTO;
-import xyz.problembook.dtos.Solution.SolutionDTO;
-import xyz.problembook.dtos.Solution.SolutionUpdateDTO;
 import xyz.problembook.entities.SolutionEntity;
 import xyz.problembook.services.SolutionService;
 
@@ -32,8 +30,8 @@ public class SolutionController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<SolutionEntity> update(@PathVariable Integer id, @RequestBody SolutionUpdateDTO solution){
-        return solutionService.update(id, solution);
+    public ResponseEntity<SolutionEntity> update(@PathVariable Integer id, @RequestBody String status){
+        return solutionService.update(id, status);
     }
 
     @DeleteMapping("/{id}")
