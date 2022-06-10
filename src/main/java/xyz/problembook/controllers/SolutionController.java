@@ -29,7 +29,7 @@ public class SolutionController {
         return solutionService.add(solutionDTO);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping(value = "/{id}", consumes="text/plain")
     public ResponseEntity<SolutionEntity> update(@PathVariable Integer id, @RequestBody String status){
         return solutionService.update(id, status);
     }
