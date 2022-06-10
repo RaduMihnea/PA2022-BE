@@ -13,6 +13,6 @@ public interface SolutionRepository extends JpaRepository<SolutionEntity, Intege
     @Query("select s from SolutionEntity s where s.userId = ?1")
     List<SolutionEntity> findAll(Integer userId);
 
-    @Query("select new xyz.problembook.dtos.Solution.SolutionDTO(s.userId, u.name, s.problemId, s.answer, s.status, s.dateAdded) from SolutionEntity s join UserEntity u on s.userId = u.id where s.problemId = ?1")
+    @Query("select new xyz.problembook.dtos.Solution.SolutionDTO(s.id, s.userId, u.name, s.problemId, s.answer, s.status, s.dateAdded) from SolutionEntity s join UserEntity u on s.userId = u.id where s.problemId = ?1")
     List<SolutionDTO> findAllByProblemId(Integer problemId);
 }
