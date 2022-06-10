@@ -4,6 +4,9 @@ import lombok.*;
 import xyz.problembook.dtos.Solution.SolutionDTO;
 
 import javax.persistence.*;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Class describing the 'users' table in the database.
@@ -35,10 +38,17 @@ public class SolutionEntity {
     @Column
     private String status;
 
+    @Column
+    private String dateAdded;
+
     public SolutionEntity(SolutionDTO data) {
         this.userId = data.userId;
         this.problemId = data.problemId;
         this.answer = data.answer;
         this.status = "check";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+                .withZone(ZoneId.systemDefault());
+        Instant instant = Instant.now();
+        this.dateAdded = formatter.format(instant);
     }
 }
