@@ -1,6 +1,7 @@
 package xyz.problembook.entities;
 
 import lombok.*;
+import xyz.problembook.dtos.Solution.SolutionAddDTO;
 import xyz.problembook.dtos.Solution.SolutionDTO;
 
 import javax.persistence.*;
@@ -41,7 +42,7 @@ public class SolutionEntity {
     @Column
     private String dateAdded;
 
-    public SolutionEntity(SolutionDTO data) {
+    public SolutionEntity(SolutionAddDTO data) {
         this.userId = data.userId;
         this.problemId = data.problemId;
         this.answer = data.answer;

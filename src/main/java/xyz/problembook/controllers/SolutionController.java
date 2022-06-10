@@ -3,6 +3,7 @@ package xyz.problembook.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import xyz.problembook.dtos.Solution.SolutionAddDTO;
 import xyz.problembook.dtos.Solution.SolutionDTO;
 import xyz.problembook.entities.SolutionEntity;
 import xyz.problembook.services.SolutionService;
@@ -25,7 +26,7 @@ public class SolutionController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<SolutionEntity> add(@RequestBody SolutionDTO solutionDTO) {
+    public ResponseEntity<SolutionEntity> add(@RequestBody SolutionAddDTO solutionDTO) {
         return solutionService.add(solutionDTO);
     }
 

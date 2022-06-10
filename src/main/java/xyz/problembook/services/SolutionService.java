@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import xyz.problembook.dtos.Solution.SolutionAddDTO;
 import xyz.problembook.dtos.Solution.SolutionDTO;
 import xyz.problembook.entities.ProblemEntity;
 import xyz.problembook.entities.SolutionEntity;
@@ -27,7 +28,7 @@ public class SolutionService {
         this.problemRepository = problemRepository;
     }
 
-    public ResponseEntity<SolutionEntity> add(SolutionDTO solutionDTO) {
+    public ResponseEntity<SolutionEntity> add(SolutionAddDTO solutionDTO) {
         ProblemEntity problem = this.problemRepository.findById(solutionDTO.problemId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Referenced problem not found"));
         SolutionEntity solution = solutionRepository.saveAndFlush(new SolutionEntity(solutionDTO));
