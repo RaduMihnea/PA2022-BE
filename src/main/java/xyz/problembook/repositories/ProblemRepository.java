@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ProblemRepository extends JpaRepository<ProblemEntity, Integer> {
-    @Query("select new xyz.problembook.dtos.Problem.ProblemDTO(t.id, t.teacherId, t.name, t.description, t.difficulty, t.dateAdded, (select COUNT(*) from SolutionEntity s where s.problemId = t.id), (select COUNT(*) from SolutionEntity s where s.problemId = t.id and correct = true)) from ProblemEntity t")
+    @Query("select new xyz.problembook.dtos.Problem.ProblemDTO(t.id, t.teacherId, t.name, t.description, t.difficulty, t.dateAdded, (select COUNT(*) from SolutionEntity s where s.problemId = t.id), (select COUNT(*) from SolutionEntity s where s.problemId = t.id and status = 'correct')) from ProblemEntity t")
     List<ProblemDTO> findAllAggregated();
 
     @Query("select new xyz.problembook.dtos.Problem.ProblemDTO(t.id, t.teacherId, t.name, t.description, t.difficulty, t.dateAdded) from ProblemEntity t where t.id = ?1")
