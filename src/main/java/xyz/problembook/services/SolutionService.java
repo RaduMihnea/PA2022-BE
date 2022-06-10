@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import xyz.problembook.dtos.Solution.SolutionAddDTO;
 import xyz.problembook.dtos.Solution.SolutionDTO;
+import xyz.problembook.dtos.Solution.SolutionUpdateDTO;
 import xyz.problembook.entities.ProblemEntity;
 import xyz.problembook.entities.SolutionEntity;
 import xyz.problembook.repositories.ProblemRepository;
@@ -39,10 +40,10 @@ public class SolutionService {
         return solutionRepository.findAll(userId);
     }
 
-    public ResponseEntity<SolutionEntity> update(Integer id, String status) {
+    public ResponseEntity<SolutionEntity> update(Integer id, SolutionUpdateDTO solutionUpdateDTO) {
         SolutionEntity solution = solutionRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Referenced solution not found"));
-        solution.setStatus(status);
+        solution.setStatus(solutionUpdateDTO.verdict);
         return new ResponseEntity<>(solutionRepository.save(solution), HttpStatus.CREATED);
     }
 
