@@ -1,7 +1,10 @@
-package xyz.problembook.dtos;
+package xyz.problembook.dtos.Problem;
 
 import lombok.Data;
 import xyz.problembook.entities.ProblemEntity;
+import xyz.problembook.entities.SolutionEntity;
+
+import java.util.List;
 
 @Data
 public class ProblemDTO {
@@ -19,6 +22,8 @@ public class ProblemDTO {
     public String answer;
 
     public String dateAdded;
+
+    public List<SolutionEntity> solutions;
 
     public Long totalSolved;
 

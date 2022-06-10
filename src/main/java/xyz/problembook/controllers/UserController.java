@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import xyz.problembook.dtos.LoggedInDTO;
-import xyz.problembook.dtos.LoginDTO;
-import xyz.problembook.dtos.RegisterDTO;
-import xyz.problembook.dtos.UserDTO;
+import xyz.problembook.dtos.Auth.LoginDTO;
+import xyz.problembook.dtos.Auth.RegisterDTO;
+import xyz.problembook.dtos.Auth.UserDTO;
 import xyz.problembook.entities.UserEntity;
 import xyz.problembook.services.UserService;
 

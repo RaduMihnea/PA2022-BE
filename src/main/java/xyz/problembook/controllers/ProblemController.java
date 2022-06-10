@@ -3,8 +3,8 @@ package xyz.problembook.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import xyz.problembook.dtos.ProblemAddDTO;
-import xyz.problembook.dtos.ProblemDTO;
+import xyz.problembook.dtos.Problem.ProblemAddDTO;
+import xyz.problembook.dtos.Problem.ProblemDTO;
 import xyz.problembook.entities.ProblemEntity;
 import xyz.problembook.services.ProblemService;
 

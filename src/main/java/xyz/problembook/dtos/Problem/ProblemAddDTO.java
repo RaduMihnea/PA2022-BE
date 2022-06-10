@@ -1,4 +1,4 @@
-package xyz.problembook.dtos;
+package xyz.problembook.dtos.Problem;
 
 import lombok.Data;
 import xyz.problembook.entities.ProblemEntity;

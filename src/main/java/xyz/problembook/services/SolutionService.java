@@ -5,14 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import xyz.problembook.dtos.SolutionDTO;
+import xyz.problembook.dtos.Solution.SolutionDTO;
 import xyz.problembook.entities.ProblemEntity;
 import xyz.problembook.entities.SolutionEntity;
 import xyz.problembook.repositories.ProblemRepository;
 import xyz.problembook.repositories.SolutionRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class SolutionService {
@@ -31,12 +30,19 @@ public class SolutionService {
     public ResponseEntity<SolutionEntity> add(SolutionDTO solutionDTO) {
         ProblemEntity problem = this.problemRepository.findById(solutionDTO.problemId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Referenced problem not found"));
-        SolutionEntity solution = solutionRepository.saveAndFlush(new SolutionEntity(solutionDTO, problem.getAnswer()));
+        SolutionEntity solution = solutionRepository.saveAndFlush(new SolutionEntity(solutionDTO));
         return new ResponseEntity<>(solutionRepository.save(solution), HttpStatus.CREATED);
     }
 
     public List<SolutionEntity> index(Integer userId){
         return solutionRepository.findAll(userId);
+    }
+
+    public ResponseEntity<SolutionEntity> update(Integer id, String status) {
+        SolutionEntity solution = solutionRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Referenced solution not found"));
+        solution.setStatus(status);
+        return new ResponseEntity<>(solutionRepository.save(solution), HttpStatus.CREATED);
     }
 
     public void destroy(Integer id){

@@ -1,4 +1,4 @@
-package xyz.problembook.dtos;
+package xyz.problembook.dtos.Auth;
 
 /**
  * Class that represent information received upon registering.

@@ -1,12 +1,9 @@
 package xyz.problembook.entities;
 
 import lombok.*;
-import xyz.problembook.dtos.RegisterDTO;
-import xyz.problembook.dtos.SolutionDTO;
+import xyz.problembook.dtos.Solution.SolutionDTO;
 
 import javax.persistence.*;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Class describing the 'users' table in the database.
@@ -36,12 +33,12 @@ public class SolutionEntity {
     private String answer;
 
     @Column
-    private Boolean correct;
+    private String status;
 
-    public SolutionEntity(SolutionDTO data, String realAnswer) {
+    public SolutionEntity(SolutionDTO data) {
         this.userId = data.userId;
         this.problemId = data.problemId;
         this.answer = data.answer;
-        this.correct = data.answer.equals(realAnswer);
+        this.status = "check";
     }
 }

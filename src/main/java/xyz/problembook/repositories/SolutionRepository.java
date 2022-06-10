@@ -11,4 +11,7 @@ import java.util.List;
 public interface SolutionRepository extends JpaRepository<SolutionEntity, Integer> {
     @Query("select s from SolutionEntity s where s.userId = ?1")
     List<SolutionEntity> findAll(Integer userId);
+
+    @Query("select s from SolutionEntity s where s.problemId = ?1")
+    List<SolutionEntity> findAllByProblemId(Integer problemId);
 }

@@ -5,9 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import xyz.problembook.dtos.LoginDTO;
-import xyz.problembook.dtos.RegisterDTO;
-import xyz.problembook.dtos.UserDTO;
+import xyz.problembook.dtos.Auth.LoginDTO;
+import xyz.problembook.dtos.Auth.RegisterDTO;
+import xyz.problembook.dtos.Auth.UserDTO;
 import xyz.problembook.entities.UserEntity;
 import xyz.problembook.repositories.UserRepository;
 

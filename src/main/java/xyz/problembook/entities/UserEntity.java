@@ -1,8 +1,8 @@
 package xyz.problembook.entities;
 
 import lombok.*;
-import xyz.problembook.dtos.RegisterDTO;
-import xyz.problembook.dtos.UserDTO;
+import xyz.problembook.dtos.Auth.RegisterDTO;
+import xyz.problembook.dtos.Auth.UserDTO;
 
 import javax.persistence.*;
 import java.security.MessageDigest;

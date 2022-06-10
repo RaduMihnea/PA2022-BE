@@ -1,4 +1,4 @@
-package xyz.problembook.dtos;
+package xyz.problembook.dtos.Auth;
 
 public class UserDTO {
     public String user;

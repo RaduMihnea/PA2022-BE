@@ -1,4 +1,4 @@
-package xyz.problembook.dtos;
+package xyz.problembook.dtos.Solution;
 
 public class SolutionDTO {
     public Integer userId;

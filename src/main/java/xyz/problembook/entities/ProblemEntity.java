@@ -1,8 +1,7 @@
 package xyz.problembook.entities;
 
 import lombok.*;
-import xyz.problembook.dtos.ProblemAddDTO;
-import xyz.problembook.dtos.ProblemDTO;
+import xyz.problembook.dtos.Problem.ProblemAddDTO;
 
 import javax.persistence.*;
 import java.time.Instant;
